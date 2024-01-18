@@ -6,9 +6,9 @@ export async function POST(req:Request) {
         const { text } = await req.json()
         const genAI = new GoogleGenerativeAI(process.env.API_KEY);
         const generationConfig = {
-            temperature: 0.3,
-            topK: 10,
-            topP: 0.8,
+            temperature: 0,
+            topK: 1,
+            topP: 0.5,
             maxOutputTokens: 4096
         }
 
