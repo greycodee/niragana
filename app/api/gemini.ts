@@ -7,12 +7,12 @@ export default async function geminiAPI(text:string){
             return "";
         }
         const genAI = new GoogleGenerativeAI(process.env.API_KEY);
-        const generationConfig = {
-            temperature: 0.8,
-            topK: 32,
-            topP: 1,
-            maxOutputTokens: 4096
-        }
+        // const generationConfig = {
+        //     temperature: 0.8,
+        //     topK: 32,
+        //     topP: 1,
+        //     maxOutputTokens: 4096
+        // }
 
         const safetySettings = [
             {
@@ -44,7 +44,7 @@ export default async function geminiAPI(text:string){
 
         const result = await model.generateContent({
             contents: [{ role: 'user', parts }],
-            generationConfig,
+            // generationConfig,
             safetySettings
         })
         const response = await result.response;
