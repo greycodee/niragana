@@ -3,6 +3,8 @@ import { Button } from "@nextui-org/button";
 import { Suspense} from "react";
 import Search from "@/components/search";
 import GeminiResp from "@/components/result"
+import {Skeleton} from "@nextui-org/skeleton";
+
 
 export default async function Page({
   searchParams,
@@ -16,10 +18,9 @@ export default async function Page({
   return (
     <main className="flex flex-col justify-center items-center space-y-4">
       <Search/>
-      <Suspense fallback={<div>loading...</div>}>
+      <Suspense key={query} fallback={<Skeleton className="h-3 w-3/5 rounded-lg"/>}>
         <GeminiResp text={query}/>
       </Suspense>
-      
     </main>
   );
 }
